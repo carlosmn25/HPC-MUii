@@ -10,11 +10,12 @@ int DIAS = 365;
 
 int main(int argc, char **argv) {
     //Obtain the number of years from the user
-    if (argc != 2) {
-        printf("Usage: %s <number of years>)\n", argv[0]);
+    if (argc != 3) {
+        printf("Usage: %s <number of years> <number of threads>)\n", argv[0]);
+        exit(1);
     }
     int anyos = atoi(argv[1]);
-    int np, pid, num_threads=8;
+    int np, pid, num_threads;
 
     float *matrix = (float *) malloc(anyos * DIAS * sizeof(float));
 
@@ -22,6 +23,8 @@ int main(int argc, char **argv) {
     float maximum = MIN_TEMP;
     double start_t, end_t, start_loop;
     FILE *fp;
+    
+    num_threads = atoi(argv[2]);
 
     start_t = omp_get_wtime();
 
