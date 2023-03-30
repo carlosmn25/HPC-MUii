@@ -2,6 +2,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 df = pd.read_csv('lab3/data.csv')
+# Take the mean of time and loop of df with the same number of threads but dont index it
+df = df.groupby('nthreads').mean().reset_index()
+
 years = df['years']
 time = df['time']
 num = df['nthreads']
