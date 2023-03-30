@@ -60,9 +60,6 @@ plt.savefig('lab3/figLoop.png')
 
 plt.clf()
 
-print(num)
-print(efficiency)
-
 # Plot efficiency list
 fig = plt.plot(num, efficiency)
 plt.xlabel('Number of threads')
